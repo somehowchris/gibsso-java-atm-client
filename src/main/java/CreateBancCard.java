@@ -17,6 +17,49 @@ public class CreateBancCard {
     public static Faker faker = new Faker();
 
     /**
+     * Generates the check digit required to make the given credit card number
+     * valid (i.e. pass the Luhn check)
+     *
+     * @param number The credit card number for which to generate the check digit.
+     * @return The check digit required to make the given credit card number
+     * valid.
+     */
+    private int getCheckDigit(String number) {
+
+        // Get the sum of all the digits, however we need to replace the value
+        // of the first digit, and every other digit, with the same digit
+        // multiplied by 2. If this multiplication yields a number greater
+        // than 9, then add the two digits together to get a single digit
+        // number.
+        //
+        // The digits we need to replace will be those in an even position for
+        // card numbers whose length is an even number, or those is an odd
+        // position for card numbers whose length is an odd number. This is
+        // because the Luhn algorithm reverses the card number, and doubles
+        // every other number starting from the second number from the last
+        // position.
+        int sum = 0;
+        for (int i = 0; i < number.length(); i++) {
+
+            // Get the digit at the current position.
+            int digit = Integer.parseInt(number.substring(i, (i + 1)));
+
+            if ((i % 2) == 0) {
+                digit = digit * 2;
+                if (digit > 9) {
+                    digit = (digit / 10) + (digit % 10);
+                }
+            }
+            sum += digit;
+        }
+
+        // The check digit is the number required to make the sum a multiple of
+        // 10.
+        int mod = sum % 10;
+        return ((mod == 0) ? 0 : 10 - mod);
+    }
+
+    /**
      * Generates a random valid credit card number. For more information about
      * the credit card number generation algorithms and credit card numbers
      * refer to <a
@@ -54,50 +97,6 @@ public class CreateBancCard {
         return builder.toString();
     }
 
-    /**
-     * Generates the check digit required to make the given credit card number
-     * valid (i.e. pass the Luhn check)
-     *
-     * @param number
-     *            The credit card number for which to generate the check digit.
-     * @return The check digit required to make the given credit card number
-     *         valid.
-     */
-    private int getCheckDigit(String number) {
-
-        // Get the sum of all the digits, however we need to replace the value
-        // of the first digit, and every other digit, with the same digit
-        // multiplied by 2. If this multiplication yields a number greater
-        // than 9, then add the two digits together to get a single digit
-        // number.
-        //
-        // The digits we need to replace will be those in an even position for
-        // card numbers whose length is an even number, or those is an odd
-        // position for card numbers whose length is an odd number. This is
-        // because the Luhn algorithm reverses the card number, and doubles
-        // every other number starting from the second number from the last
-        // position.
-        int sum = 0;
-        for (int i = 0; i < number.length(); i++) {
-
-            // Get the digit at the current position.
-            int digit = Integer.parseInt(number.substring(i, (i + 1)));
-
-            if ((i % 2) == 0) {
-                digit = digit * 2;
-                if (digit > 9) {
-                    digit = (digit / 10) + (digit % 10);
-                }
-            }
-            sum += digit;
-        }
-
-        // The check digit is the number required to make the sum a multiple of
-        // 10.
-        int mod = sum % 10;
-        return ((mod == 0) ? 0 : 10 - mod);
-    }
-
     public static String createMockLastName(){
         String lastName = faker.name().lastName();
         return lastName;
@@ -108,18 +107,13 @@ public class CreateBancCard {
         return firstName;
     }
 
-    public static String createMockAccount(){
-        String account = createMockLastName()+"-"+createMockFirstName();
-        return account;
-    }
-
     public static String createMockIban(){
         String iban = Iban.random(CountryCode.CH).toString();
         return iban;
     }
 
     public static String createMockBank(){
-        String bank = "UBS";
+        String bank = "ZUERCHER KANTONALBANK";
         return bank;
     }
 
@@ -134,8 +128,17 @@ public class CreateBancCard {
     }
 
     public static void createCard() {
-        List<String> lines = Arrays.asList(stringFormatter(18, createMockLastName()), stringFormatter(12, createMockFirstName()));
-        Path file = Paths.get("file1.txt");
+            List<String> lines = Arrays.asList(
+                    stringFormatter(19, createMockLastName()),
+                    stringFormatter(13, createMockFirstName()),
+                    stringFormatter(25, "Name-Vorname"),
+                    stringFormatter(27, createMockIban()),
+                    stringFormatter(26, createMockBank()),
+                    stringFormatter(8, "15648975"),
+                    stringFormatter(4, "0820"),
+                    stringFormatter(6, "123456")
+            );
+        Path file = Paths.get("Card1.txt");
         try {
             Files.write(file, Collections.singleton(String.join("", lines)), StandardCharsets.UTF_8);
         } catch (IOException x) {
@@ -145,5 +148,6 @@ public class CreateBancCard {
 
     public static void main(String[] args) {
         createCard();
+
     }
 }
