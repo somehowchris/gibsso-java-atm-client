@@ -6,4 +6,6 @@
 - [ ] Display
 - [ ] Update display
 - [ ] Receiptprinter
+- [ ] UML
+- [ ] Tests
 
