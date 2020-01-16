@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0c658c1-80e3-4eb8-b972-72e90d5cfd19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="f0c658c1-80e3-4eb8-b972-72e90d5cfd19" name="Default Changelist" comment="Refactored GUI to Bancomat because of Furter UML reasons&#10;Added pretty OK mock file generator&#10;basic layout with small error">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/Card1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/Card2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/Card3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/Card4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CardReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Display.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DistinctIfDirectOrRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Functionbuttons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MoneyCassette.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PrintedReceipt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Receiptprinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StandardButtons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/WithdrawMoney.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/WithdrawedMoney.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/BancomatTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CardReaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CreateBancCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DisplayTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DistinctIfDirectOrRestTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/FunctionbuttonsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MoneyCassetteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PrintedReceiptTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ReceiptprinterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/StandardButtonsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/WithdrawMoneyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/WithdrawedMoneyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Card1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bancomat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bancomat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateBancCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateBancCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bancomat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/CreateBancCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateBancCard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +68,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1UpdfXjmQzgl6grRsXNSqLDqzyc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -60,7 +88,12 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
-  <component name="RunManager" selected="Application.Bancomat">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\Schule\Client\Cards" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.DistinctIfDirectOrRest">
     <configuration name="Bancomat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Bancomat" />
       <module name="Client" />
@@ -75,10 +108,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DistinctIfDirectOrRest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DistinctIfDirectOrRest" />
+      <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Bancomat" />
+        <item itemvalue="Application.DistinctIfDirectOrRest" />
         <item itemvalue="Application.CreateBancCard" />
+        <item itemvalue="Application.Bancomat" />
       </list>
     </recent_temporary>
   </component>
@@ -105,8 +146,18 @@
       <option name="presentableId" value="Default" />
       <updated>1576057573399</updated>
       <workItem from="1578469502409" duration="2808000" />
-      <workItem from="1578846708556" duration="6038000" />
+      <workItem from="1578846708556" duration="6310000" />
+      <workItem from="1579101579696" duration="4355000" />
+      <workItem from="1579194969247" duration="5947000" />
     </task>
+    <task id="LOCAL-00001" summary="Refactored GUI to Bancomat because of Furter UML reasons&#10;Added pretty OK mock file generator&#10;basic layout with small error">
+      <created>1578857931135</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578857931135</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,76 +176,110 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Refactored GUI to Bancomat because of Furter UML reasons&#10;Added pretty OK mock file generator&#10;basic layout with small error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored GUI to Bancomat because of Furter UML reasons&#10;Added pretty OK mock file generator&#10;basic layout with small error" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="997" y="394" key="#CreateBancCard" timestamp="1578849097189">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="997" y="394" key="#CreateBancCard/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578849097189" />
+    <state x="872" y="394" key="#Project_Structure" timestamp="1579201883028">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="872" y="394" key="#Project_Structure/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579201883028" />
     <state x="1131" y="625" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1578846764173">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="1131" y="625" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578846764173" />
-    <state x="905" y="330" key="CommitChangelistDialog2" timestamp="1578857908312">
+    <state x="1076" y="595" width="408" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579198544308">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="905" y="330" key="CommitChangelistDialog2/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857908312" />
-    <state width="1258" height="404" key="GridCell.Tab.0.bottom" timestamp="1578857908333">
+    <state x="1076" y="595" width="408" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579198544308" />
+    <state x="905" y="330" key="CommitChangelistDialog2" timestamp="1579202513873">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="905" y="330" key="CommitChangelistDialog2/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513873" />
+    <state x="905" y="330" key="CommitChangelistDialog2/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857929947" />
+    <state width="1258" height="404" key="GridCell.Tab.0.bottom" timestamp="1579202513900">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state width="1397" height="225" key="GridCell.Tab.0.bottom/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
-    <state width="1258" height="404" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857908333" />
-    <state width="1258" height="404" key="GridCell.Tab.0.center" timestamp="1578857908333">
+    <state width="1258" height="404" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
+    <state width="2517" height="496" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="1258" height="404" key="GridCell.Tab.0.center" timestamp="1579202513900">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state width="1397" height="225" key="GridCell.Tab.0.center/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
-    <state width="1258" height="404" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857908333" />
-    <state width="1258" height="404" key="GridCell.Tab.0.left" timestamp="1578857908333">
+    <state width="1258" height="404" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
+    <state width="2517" height="496" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="1258" height="404" key="GridCell.Tab.0.left" timestamp="1579202513900">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state width="1397" height="225" key="GridCell.Tab.0.left/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
-    <state width="1258" height="404" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857908333" />
-    <state width="1258" height="404" key="GridCell.Tab.0.right" timestamp="1578857908333">
+    <state width="1258" height="404" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
+    <state width="2517" height="496" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="1258" height="404" key="GridCell.Tab.0.right" timestamp="1579202513900">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state width="1397" height="225" key="GridCell.Tab.0.right/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
-    <state width="1258" height="404" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857908333" />
-    <state width="2517" height="496" key="GridCell.Tab.1.bottom" timestamp="1578857687782">
+    <state width="1258" height="404" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
+    <state width="2517" height="496" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="2517" height="496" key="GridCell.Tab.1.bottom" timestamp="1578857956924">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="496" key="GridCell.Tab.1.bottom/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857687782" />
-    <state width="2517" height="496" key="GridCell.Tab.1.center" timestamp="1578857687782">
+    <state width="2517" height="496" key="GridCell.Tab.1.bottom/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="2517" height="496" key="GridCell.Tab.1.center" timestamp="1578857956924">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="496" key="GridCell.Tab.1.center/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857687782" />
-    <state width="2517" height="496" key="GridCell.Tab.1.left" timestamp="1578857687782">
+    <state width="2517" height="496" key="GridCell.Tab.1.center/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="2517" height="496" key="GridCell.Tab.1.left" timestamp="1578857956924">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="496" key="GridCell.Tab.1.left/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857687782" />
-    <state width="2517" height="496" key="GridCell.Tab.1.right" timestamp="1578857687782">
+    <state width="2517" height="496" key="GridCell.Tab.1.left/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
+    <state width="2517" height="496" key="GridCell.Tab.1.right" timestamp="1578857956924">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="496" key="GridCell.Tab.1.right/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857687782" />
+    <state width="2517" height="496" key="GridCell.Tab.1.right/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
     <state x="174" y="30" key="SettingsEditor" timestamp="1578850694552">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="98" y="30" key="SettingsEditor/0.30.1440.870@0.30.1440.870" timestamp="1576656484702" />
     <state x="174" y="30" key="SettingsEditor/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578850694552" />
-    <state x="872" y="469" key="Vcs.Push.Dialog.v2" timestamp="1578857820962">
+    <state x="872" y="469" key="Vcs.Push.Dialog.v2" timestamp="1578857935715">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="872" y="469" key="Vcs.Push.Dialog.v2/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857820962" />
-    <state x="981" y="560" key="com.intellij.ide.util.TipDialog" timestamp="1578846727115">
+    <state x="872" y="469" key="Vcs.Push.Dialog.v2/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857935715" />
+    <state x="981" y="560" key="com.intellij.ide.util.TipDialog" timestamp="1579195047480">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
+    <state x="981" y="560" key="com.intellij.ide.util.TipDialog/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579195047480" />
     <state x="981" y="560" key="com.intellij.ide.util.TipDialog/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578846727115" />
-    <state x="1089" y="653" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578846900284">
+    <state x="1089" y="653" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579196699841">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
+    <state x="1089" y="653" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579196699841" />
     <state x="1089" y="653" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578846900284" />
-    <state x="982" y="527" key="git4idea.merge.GitPullDialog" timestamp="1578846869491">
+    <state x="975" y="332" width="737" height="804" key="find.popup" timestamp="1579201879780">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
+    <state x="975" y="332" width="737" height="804" key="find.popup/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579201879780" />
+    <state x="982" y="527" key="git4idea.merge.GitPullDialog" timestamp="1579101595900">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="982" y="527" key="git4idea.merge.GitPullDialog/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579101595900" />
     <state x="982" y="527" key="git4idea.merge.GitPullDialog/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578846869491" />
+    <state x="662" y="356" key="new project wizard" timestamp="1579195754663">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="662" y="356" key="new project wizard/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579195754663" />
+    <state x="943" y="347" key="search.everywhere.popup" timestamp="1579111248599">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="943" y="347" key="search.everywhere.popup/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579111248599" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

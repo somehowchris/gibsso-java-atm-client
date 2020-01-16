@@ -128,17 +128,18 @@ public class CreateBancCard {
     }
 
     public static void createCard() {
-            List<String> lines = Arrays.asList(
-                    stringFormatter(19, createMockLastName()),
-                    stringFormatter(13, createMockFirstName()),
-                    stringFormatter(25, "Name-Vorname"),
-                    stringFormatter(27, createMockIban()),
-                    stringFormatter(26, createMockBank()),
-                    stringFormatter(8, "15648975"),
-                    stringFormatter(4, "0820"),
-                    stringFormatter(6, "123456")
-            );
-        Path file = Paths.get("Card1.txt");
+        List<String> lines = Arrays.asList(
+                stringFormatter(19, createMockLastName()),
+                stringFormatter(13, createMockFirstName()),
+                stringFormatter(25, "Name-Vorname"),
+                stringFormatter(27, createMockIban()),
+                stringFormatter(26, createMockBank()),
+                stringFormatter(8, "15648975"),
+                stringFormatter(4, "0820"),
+                stringFormatter(6, "123456")
+        );
+
+        Path file = Paths.get("Cards/Card1.txt");
         try {
             Files.write(file, Collections.singleton(String.join("", lines)), StandardCharsets.UTF_8);
         } catch (IOException x) {
@@ -148,6 +149,5 @@ public class CreateBancCard {
 
     public static void main(String[] args) {
         createCard();
-
     }
 }
