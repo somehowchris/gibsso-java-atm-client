@@ -139,7 +139,7 @@ public class CreateBancCard {
                 stringFormatter(6, "123456")
         );
 
-        Path file = Paths.get("Cards/Card1.txt");
+        Path file = Paths.get("Cards/Card1.card");
         try {
             Files.write(file, Collections.singleton(String.join("", lines)), StandardCharsets.UTF_8);
         } catch (IOException x) {

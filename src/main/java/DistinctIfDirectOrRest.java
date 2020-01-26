@@ -1,3 +1,9 @@
+import ch.bbzsogr.bi.exceptions.AccountCreationException;
+import ch.bbzsogr.bi.exceptions.CardCreationException;
+import ch.bbzsogr.bi.exceptions.EntitySaveException;
+
+import java.io.IOException;
+
 /**
  * @author daviddaniel.dubach
  */
@@ -8,7 +14,7 @@ public class DistinctIfDirectOrRest extends javax.swing.JFrame {
     /**
      * Creates new form DistinctIfDirectOrRest
      */
-    public DistinctIfDirectOrRest() {
+    public DistinctIfDirectOrRest() throws Exception {
         initComponents();
     }
 
@@ -118,7 +124,19 @@ public class DistinctIfDirectOrRest extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+              try {
                 new DistinctIfDirectOrRest().setVisible(true);
+              } catch (CardCreationException e) {
+                e.printStackTrace();
+              } catch (AccountCreationException e) {
+                e.printStackTrace();
+              } catch (EntitySaveException e) {
+                e.printStackTrace();
+              } catch (IOException e) {
+                e.printStackTrace();
+              } catch (Exception e) {
+                e.printStackTrace();
+              }
             }
         });
     }
