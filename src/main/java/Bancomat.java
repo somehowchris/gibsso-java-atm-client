@@ -6,12 +6,8 @@ import ch.bbzsogr.bi.models.Account;
 import ch.bbzsogr.bi.models.Card;
 import ch.bbzsogr.bi.models.Person;
 import ch.bbzsogr.bi.models.enums.ApiType;
-import ch.bbzsogr.bi.services.AccountService;
-import ch.bbzsogr.bi.services.CardService;
-import ch.bbzsogr.bi.services.PeopleService;
 import ch.bbzsogr.bi.utils.Container;
 import ch.bbzsogr.bi.utils.SystemUtil;
-import com.google.common.collect.Lists;
 import services.CardReader;
 import services.NumberPadService;
 
@@ -20,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -34,6 +29,7 @@ public class Bancomat extends javax.swing.JFrame {
   HashMap<File, Person> cards = new HashMap<>();
   Person selected;
   Account account;
+  Card card;
   state currentState = state.SELECTED;
   CardServiceInterface cardService;
 
@@ -75,7 +71,7 @@ public class Bancomat extends javax.swing.JFrame {
     cards.putAll(cardReader.scanDirectory("./Cards"));
     // TODO check your config
     try {
-      db =  new DatabaseController();
+      db = new DatabaseController();
       db.seed();
     } catch (OGMDatabaseTypeNotFoundException e) {
       e.printStackTrace();
@@ -93,7 +89,6 @@ public class Bancomat extends javax.swing.JFrame {
     cardService = Container.getService(CardServiceInterface.class, ApiType.DIRECT);
     cards.put(new File("Cards/Cards2.txt"), Container.getService(PeopleServiceInterface.class, ApiType.DIRECT).getPerson("402882026fe3945b016fe3946a0a0000"));
     initComponents();
-    //134597
   }
 
   private void initComponents() {
@@ -175,22 +170,59 @@ public class Bancomat extends javax.swing.JFrame {
     btnCancel.setText("Cancel");
     btnCancel.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
+        if(currentState == state.WITHDRAW){
+          currentState = state.OVERVIEW;
+          setOverviewLabels();
+          labelUserInput.setText("Please choose your action");
+          return;
+        }
         btnCancelActionPerformed(evt);
+        cardDropdown.setEnabled(true);
+        currentState = state.SELECTED;
       }
     });
 
     functionBtnTwo.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        if(currentState == state.OVERVIEW){
-          labelUserInput.setText("Your current balance is "+account.getBalance()+" CHF");
+        if (currentState == state.OVERVIEW) {
+          labelUserInput.setText("Your current balance is " + account.getBalance() + " CHF");
         }
       }
     });
 
+    functionBtnOne.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if (currentState == state.CHANGE_PIN) {
+          currentState = state.OVERVIEW;
+          setOverviewLabels();
+          labelUserInput.setText("Please choose your action");
+        }
+        if (currentState == state.OVERVIEW) {
+          currentState = state.WITHDRAW;
+          setMoneyWithDrawOptionsLabels();
+          labelUserInput.setText("<html>Select an option or to withdraw a custom amount please use the pad and hit ok: 0 CHF<br></html>");
+        }
+      }
+    });
+
+    functionBtnThree.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if (currentState == state.OVERVIEW) {
+          labelUserInput.setText("Please enter your new pin:");
+          setChangePinCodeLabels();
+          numberPadService.reset();
+          currentState = state.CHANGE_PIN;
+        }
+      }
+    });
 
     btnClear.setBackground(new java.awt.Color(255, 204, 0));
+
     btnClear.setText("Clear");
+
     btnClear.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         numberPadService.reset();
@@ -204,40 +236,57 @@ public class Bancomat extends javax.swing.JFrame {
     btnOk.setText("OK");
     btnOk.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-       if(currentState == state.SELECTED){
-         Card card = selected.getAccounts().get(0).getCards().get(0);
-         try {
-           card = cardService.authenticate(card.getCardNumber(), numberPadService.toString());
-           selected = card.getAccount().getPerson();
-           account = card.getAccount();
-           labelUserInput.setText("Please choose your action");
-           label1.setVisible(true);
-           label2.setVisible(true);
-           label3.setVisible(true);
-           label4.setVisible(true);
-           currentState = state.OVERVIEW;
-         } catch (Exception e) {
-           e.printStackTrace();
-           timesPinWrong += 1;
-           btnClear.doClick();
-           if(timesPinWrong == 3){
-             try {
-               cardService.lockCard(card.getCardNumber());
-             } catch (CardLockException ex) {
-               ex.printStackTrace();
-             } catch (Exception ex) {
-               System.out.println("Card doesn't exist");
-             } finally {
-               File f = (File) cards.keySet().toArray()[cardDropdown.getSelectedIndex()-1];
-               f.delete();
-               cards.remove(cards.get(f));
-               cardDropdown.removeItemAt(cardDropdown.getSelectedIndex());
-               btnClear.doClick();
-               currentState = state.SELECTED;
-             }
-           }
-         }
-       }
+        if (currentState == state.CHANGE_PIN) {
+          if (numberPadService.getString().length() < 6) {
+            labelUserInput.setText("Please enter a valid new pin with at least 6 digits: ");
+            numberPadService.reset();
+            return;
+          }
+          try {
+            cardService.changePin(card.getCardNumber(), numberPadService.getString());
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
+
+          currentState = state.SELECTED;
+          setOverviewLabels();
+          labelUserInput.setText("Please choose your action");
+        }
+        if (currentState == state.SELECTED) {
+          card = selected.getAccounts().get(0).getCards().get(0);
+          try {
+            card = cardService.authenticate(card.getCardNumber(), numberPadService.getString());
+            if (card == null) throw new Exception();
+            selected = card.getAccount().getPerson();
+            account = card.getAccount();
+            labelUserInput.setText("Please choose your action");
+            setLabelVisisble(true);
+            setOverviewLabels();
+            currentState = state.OVERVIEW;
+            cardDropdown.setEnabled(false);
+          } catch (Exception e) {
+            e.printStackTrace();
+            timesPinWrong += 1;
+            btnClear.doClick();
+            if (timesPinWrong == 3) {
+              try {
+                cardService.lockCard(card.getCardNumber());
+              } catch (CardLockException ex) {
+                ex.printStackTrace();
+              } catch (Exception ex) {
+                System.out.println("Card doesn't exist");
+              } finally {
+                File f = (File) cards.keySet().toArray()[cardDropdown.getSelectedIndex() - 1];
+                f.delete();
+                cards.remove(cards.get(f));
+                cardDropdown.removeItemAt(cardDropdown.getSelectedIndex());
+                btnClear.doClick();
+                currentState = state.SELECTED;
+                labelUserInput.setText("Ihre Karte ist gesperrt");
+              }
+            }
+          }
+        }
       }
     });
 
@@ -257,7 +306,8 @@ public class Bancomat extends javax.swing.JFrame {
     label3.setText("Change pincode");
 
     cardDropdown.addItem("");
-    cards.forEach((k,v) -> {
+
+    cards.forEach((k, v) -> {
       if (v != null && v.getAccounts().size() >= 1) cardDropdown.addItem(v.getAccounts().get(0).getIban());
     });
 
@@ -397,20 +447,52 @@ public class Bancomat extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void cardDropdownActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO screen "Please enter your pin"
-    numberPadService.reset();
+  public void withdraw(String amount) {
+
   }
 
   private void addNumber(String number) {
     numberPadService.append(number);
+    if (currentState == state.WITHDRAW) {
+      labelUserInput.setText(labelUserInput.getText().replace(" 0 CHF", " CHF").replace(" CHF", number+" CHF").replace(":"+number, ": "+number));
+      return;
+    }
     labelUserInput.setText(labelUserInput.getText() + "*");
   }
 
   public void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {
     cardDropdown.setSelectedIndex(0);
+    setLabelVisisble(false);
   }
   // End of variables declaration
+
+  public void setLabelVisisble(boolean state) {
+    label1.setVisible(state);
+    label2.setVisible(state);
+    label3.setVisible(state);
+    label4.setVisible(state);
+  }
+
+  public void setOverviewLabels() {
+    label1.setText("Withdraw money");
+    label2.setText("Query balance");
+    label3.setText("Change pincode");
+    label4.setText("");
+  }
+
+  public void setMoneyWithDrawOptionsLabels() {
+    label2.setText(card.getAccount().getBalance() + card.getCredit() >= 50 ? "50 CHF" : "");
+    label3.setText(card.getAccount().getBalance() + card.getCredit() >= 50 ? "100 CHF" : "");
+    label4.setText(card.getAccount().getBalance() + card.getCredit() >= 50 ? "200 CHF" : "");
+    label1.setText(card.getAccount().getBalance() + card.getCredit() >= 50 ? "20 CHF" : "");
+  }
+
+  public void setChangePinCodeLabels() {
+    label1.setText("Zurück");
+    label2.setText("");
+    label3.setText("");
+    label4.setText("");
+  }
 
   public void setNumPadEnabled(boolean state) {
     btnOne.setEnabled(state);
@@ -427,4 +509,6 @@ public class Bancomat extends javax.swing.JFrame {
     btnCancel.setEnabled(state);
     btnClear.setEnabled(state);
   }
+
+  //134597
 }

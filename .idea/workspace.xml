@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0c658c1-80e3-4eb8-b972-72e90d5cfd19" name="Default Changelist" comment="Refactored GUI to Bancomat because of Furter UML reasons&#10;Added pretty OK mock file generator&#10;basic layout with small error">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/NumberPadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/state.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cards/Card1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cards/Card2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/Card2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bancomat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bancomat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CardReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CardReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateBancCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateBancCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DistinctIfDirectOrRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DistinctIfDirectOrRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CreateBancCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateBancCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CardReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CardReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/state.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/state.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bancomat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bancomat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/CardReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/CardReader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/CardReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/CardReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/state.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/state.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,40 +212,44 @@
     </state>
     <state x="905" y="330" key="CommitChangelistDialog2/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513873" />
     <state x="905" y="330" key="CommitChangelistDialog2/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857929947" />
-    <state width="1638" height="294" key="GridCell.Tab.0.bottom" timestamp="1580071675232">
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom" timestamp="1580075823308">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1580071675232" />
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1580075823308" />
     <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.23.1680.967@0.23.1680.967" timestamp="1580060333102" />
     <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.23.1680.976@0.23.1680.976" timestamp="1580070684308" />
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.23.1680.977@0.23.1680.977" timestamp="1580075677973" />
     <state width="1397" height="225" key="GridCell.Tab.0.bottom/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
     <state width="1258" height="404" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
     <state width="2517" height="496" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
-    <state width="1638" height="294" key="GridCell.Tab.0.center" timestamp="1580071675229">
+    <state width="1638" height="294" key="GridCell.Tab.0.center" timestamp="1580075823306">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1580071675229" />
+    <state width="1638" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1580075823306" />
     <state width="1638" height="260" key="GridCell.Tab.0.center/0.23.1680.967@0.23.1680.967" timestamp="1580060333100" />
     <state width="1638" height="294" key="GridCell.Tab.0.center/0.23.1680.976@0.23.1680.976" timestamp="1580070684306" />
+    <state width="1638" height="294" key="GridCell.Tab.0.center/0.23.1680.977@0.23.1680.977" timestamp="1580075677965" />
     <state width="1397" height="225" key="GridCell.Tab.0.center/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
     <state width="1258" height="404" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
     <state width="2517" height="496" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
-    <state width="1638" height="294" key="GridCell.Tab.0.left" timestamp="1580071675228">
+    <state width="1638" height="294" key="GridCell.Tab.0.left" timestamp="1580075823305">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1580071675228" />
+    <state width="1638" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1580075823305" />
     <state width="1638" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.23.1680.976" timestamp="1580069556307" />
     <state width="1638" height="260" key="GridCell.Tab.0.left/0.23.1680.967@0.23.1680.967" timestamp="1580060333099" />
     <state width="1638" height="294" key="GridCell.Tab.0.left/0.23.1680.976@0.23.1680.976" timestamp="1580070684305" />
+    <state width="1638" height="294" key="GridCell.Tab.0.left/0.23.1680.977@0.23.1680.977" timestamp="1580075677964" />
     <state width="1397" height="225" key="GridCell.Tab.0.left/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
     <state width="1258" height="404" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
     <state width="2517" height="496" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
-    <state width="1638" height="294" key="GridCell.Tab.0.right" timestamp="1580071675231">
+    <state width="1638" height="294" key="GridCell.Tab.0.right" timestamp="1580075823307">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1580071675231" />
+    <state width="1638" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1580075823307" />
     <state width="1638" height="260" key="GridCell.Tab.0.right/0.23.1680.967@0.23.1680.967" timestamp="1580060333101" />
     <state width="1638" height="294" key="GridCell.Tab.0.right/0.23.1680.976@0.23.1680.976" timestamp="1580070684307" />
+    <state width="1638" height="294" key="GridCell.Tab.0.right/0.23.1680.977@0.23.1680.977" timestamp="1580075677972" />
     <state width="1397" height="225" key="GridCell.Tab.0.right/0.30.1440.870@0.30.1440.870" timestamp="1576061592362" />
     <state width="1258" height="404" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.375.1920.1050@0.30.2560.1410" timestamp="1579202513900" />
     <state width="2517" height="496" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.377.1920.1050@0.30.2560.1410" timestamp="1578857956924" />
