@@ -6,6 +6,7 @@ import ch.bbzsogr.bi.models.Account;
 import ch.bbzsogr.bi.models.Card;
 import ch.bbzsogr.bi.models.Person;
 import ch.bbzsogr.bi.models.enums.ApiType;
+import ch.bbzsogr.bi.models.enums.Currency;
 import ch.bbzsogr.bi.utils.Container;
 import ch.bbzsogr.bi.utils.SystemUtil;
 import services.CardReader;
@@ -32,6 +33,7 @@ public class Bancomat extends javax.swing.JFrame {
   Card card;
   state currentState = state.SELECTED;
   CardServiceInterface cardService;
+  String bancomatId = "ff8080816fbab7c0016fbab8b6f70000";
 
   int timesPinWrong = 0;
 
@@ -185,6 +187,10 @@ public class Bancomat extends javax.swing.JFrame {
     functionBtnTwo.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        if(currentState == state.WITHDRAW){
+          withdraw("50");
+          return;
+        }
         if (currentState == state.OVERVIEW) {
           labelUserInput.setText("Your current balance is " + account.getBalance() + " CHF");
         }
@@ -194,6 +200,10 @@ public class Bancomat extends javax.swing.JFrame {
     functionBtnOne.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        if(currentState == state.WITHDRAW){
+          withdraw("20");
+          return;
+        }
         if (currentState == state.CHANGE_PIN) {
           currentState = state.OVERVIEW;
           setOverviewLabels();
@@ -210,11 +220,25 @@ public class Bancomat extends javax.swing.JFrame {
     functionBtnThree.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        if(currentState == state.WITHDRAW){
+          withdraw("100");
+          return;
+        }
         if (currentState == state.OVERVIEW) {
           labelUserInput.setText("Please enter your new pin:");
           setChangePinCodeLabels();
           numberPadService.reset();
           currentState = state.CHANGE_PIN;
+        }
+      }
+    });
+
+    functionBtnFour.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if(currentState == state.WITHDRAW){
+          withdraw("200");
+          return;
         }
       }
     });
@@ -236,6 +260,10 @@ public class Bancomat extends javax.swing.JFrame {
     btnOk.setText("OK");
     btnOk.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
+        if (currentState == state.WITHDRAW) {
+          withdraw(numberPadService.getString());
+          return;
+        }
         if (currentState == state.CHANGE_PIN) {
           if (numberPadService.getString().length() < 6) {
             labelUserInput.setText("Please enter a valid new pin with at least 6 digits: ");
@@ -448,7 +476,28 @@ public class Bancomat extends javax.swing.JFrame {
   }// </editor-fold>
 
   public void withdraw(String amount) {
+    double number = Double.valueOf(amount);
+    if(card.getCredit()+card.getAccount().getBalance()<=number){
+      currentState = state.OVERVIEW;
+      functionBtnOne.doClick();
+      labelUserInput.setText("Please enter a valid amount between 0 and "+(card.getCredit()+card.getAccount().getBalance())+": 0 CHF");
+    }
 
+    try {
+      cardService.withdraw(card.getCardNumber(), number, Currency.CHF, bancomatId);
+      currentState = state.OVERVIEW;
+      setOverviewLabels();
+      labelUserInput.setText("Please choose your action");
+    } catch (CouldNotMeetWithdrawAmountException amountE){
+      currentState = state.OVERVIEW;
+      functionBtnOne.doClick();
+      labelUserInput.setText("<html>Could not meet the expected amount. Next lowest would be "+amountE.getAvailable()+" CHF:<br> 0 CHF</html>");
+    } catch (Exception e) {
+      e.printStackTrace();
+      currentState = state.OVERVIEW;
+      functionBtnOne.doClick();
+      labelUserInput.setText("Please enter a valid amount between 0 and "+(card.getCredit()+card.getAccount().getBalance())+": 0 CHF");
+    }
   }
 
   private void addNumber(String number) {
@@ -509,6 +558,4 @@ public class Bancomat extends javax.swing.JFrame {
     btnCancel.setEnabled(state);
     btnClear.setEnabled(state);
   }
-
-  //134597
 }

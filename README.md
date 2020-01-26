@@ -10,7 +10,11 @@
 - [ ] Function buttons input
 - [ ] Display
 - [ ] Update display
-- [ ] Receiptprinter
+- [ ] 
 - [ ] UML
 - [ ] Tests
+
+
+- [ ] Receiptprinter
+- [ ] Geldausgabe
 
